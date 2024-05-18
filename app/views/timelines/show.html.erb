@@ -1,0 +1,17 @@
+<div class="mx-auto md:w-2/3 w-full flex">
+  <div class="mx-auto">
+    <% if notice.present? %>
+      <p class="py-2 px-3 bg-green-50 mb-5 text-green-500 font-medium rounded-lg inline-block" id="notice"><%= notice %></p>
+    <% end %>
+
+    <div class="flex-box">
+      <h1 class="font-bold text-4xl"><%= link_to @subject.name, @subject %> | <%= link_to "Begrippenlijsten", subject_glossaries_path(@subject)  %> | <%= @glossary.title %></h1>
+    </div>
+
+    <%= render "glossaries/glossary_tab_navigation" %>
+
+    <%= render @timeline %>
+
+    <%= link_to "Terug", subject_glossaries_path, class: "back-button" %>
+  </div>
+</div>

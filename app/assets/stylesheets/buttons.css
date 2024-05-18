@@ -1,0 +1,61 @@
+.new-button {
+  background-color: #008000;
+  color: white;
+  border-radius: 5px;
+  border: 1px solid transparent;
+  padding: 5px 10px;
+  display: inline-block;
+  text-decoration: none;
+  transition-duration: 200ms;
+}
+
+.new-button:hover{
+  background-color: #008000bb;
+}
+
+.new-button:visited {
+  color: white
+}
+
+.edit-button:visited {
+  color: white
+}
+
+.back-button {
+  background-color: #7e7e7e;
+  color: white;
+  border-radius: 5px;
+  border: 1px solid transparent;
+  padding: 5px 10px;
+  display: inline-block;
+  text-decoration: none;
+  transition-duration: 200ms;
+  margin: 10px 0;
+}
+
+.back-button:visited {
+  color: white
+}
+
+.back-button:hover{
+  background-color: #6f6f6fbb;
+}
+
+.delete-button {
+  background-color: rgb(208, 0, 0);
+  color: white;
+  border: none;
+  border-radius: 2px;
+ }
+
+.edit-button {
+  background-color: #ffd500;
+  color: white;
+  border: none;
+  border-radius: 2px;
+  padding: 0px 3px;
+ }
+
+ .delete-button:hover {
+  cursor: pointer;
+ }

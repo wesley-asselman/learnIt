@@ -1,0 +1,16 @@
+<%= form_with(model: [Subject.find(params[:subject_id]), assignment], class: "contents") do |form| %>
+
+  <div class="text_field" >
+    <%= form.label :title, "Naam" %>
+    <%= form.text_field :title %>
+  </div>
+
+  <div class="text_field" >
+    <%= form.label :amount, "Aantal vragen" %>
+    <%= form.number_field :amount %>
+  </div>
+
+  <div class="inline">
+    <%= form.submit class: "rounded-lg py-3 px-5 bg-blue-600 text-white inline-block font-medium cursor-pointer" %>
+  </div>
+<% end %>

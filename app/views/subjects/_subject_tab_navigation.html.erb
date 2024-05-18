@@ -1,0 +1,7 @@
+<div class="tab_container">
+  <div class="flex-box baseline">
+    <%= link_to "Toetsen", subject_path(@subject.id), class: "tab #{current_page?(subject_path(@subject.id)) ? "tab--active" : "tab--inactive"}" %>
+    <%= link_to "begrippenlijsten", subject_glossaries_path(@subject.id), class: "tab #{current_page?(subject_glossaries_path(@subject.id)) ? "tab--active" : "tab--inactive"}" %>
+  </div>
+  <div class="tab_divider"></div>
+</div>

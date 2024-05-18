@@ -1,0 +1,38 @@
+<%= form_with(model: [@subject, @glossary, concept], class: "contents") do |form| %>
+  <% if concept.errors.any? %>
+    <div id="error_explanation" class="bg-red-50 text-red-500 px-3 py-2 font-medium rounded-lg mt-3">
+      <h2><%= pluralize(concept.errors.count, "error") %> prohibited this concept from being saved:</h2>
+
+      <ul>
+        <% concept.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="text_field" >
+    <%= form.label :title, "Naam" %>
+    <%= form.text_field :title, autofocus: true %>
+  </div>
+
+  <div class="text_field" >
+    <%= form.label :explanation, "Uitleg" %>
+    <%= form.text_area :explanation, class: "textarea", rows: 5 %>
+  </div>
+
+  <div class="text_field" >
+    <%= form.label :note, "Notities" %>
+    <%= form.text_area :note, class: "textarea", rows: 20 %>
+  </div>
+
+    <div class="text_field" >
+    <%= form.label :page, "Pagina" %>
+    <%= form.number_field :page, value: @glossary.concepts.last && @glossary.concepts.last.page && action_name != 'edit' ? @glossary.concepts.last.page : action_name == 'edit' ? concept.page : 0 %>
+  </div>
+
+  <div class="flex-box">
+    <%= link_to "Terug", subject_glossary_path(id: @glossary.id), class: "back-button" %>
+    <%= form.submit action_name == 'new' ? "Begrip toevoegen" : "Begrip aanpassen", class: "new-button" %>
+  </div>
+<% end %>

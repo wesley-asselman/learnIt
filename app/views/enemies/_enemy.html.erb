@@ -1,0 +1,10 @@
+<div id="<%= dom_id enemy %>">
+  <div class="flex-box enemy <%= enemy.has_killed ? 'killed' : '' %>">
+      <%= form_for enemy do |f| %>
+        <%= f.label :has_killed, for: "enemy_#{enemy.id}_has_killed" do %>
+          <%= f.check_box :has_killed, id: "enemy_#{enemy.id}_has_killed", onchange: 'this.form.submit();' %>
+          <%= enemy.name %>
+        <% end %>
+      <% end %>
+  </div>
+</div>

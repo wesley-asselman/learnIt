@@ -1,0 +1,11 @@
+<div class="w-full">
+  <div class="flex-box">
+    <h1 class="font-bold text-4xl"><%= link_to @subject.name, @subject %> | Begrippenlijst</h1>
+  </div>
+
+  <div id="concepts" class="min-w-full">
+    <% @subject.concepts.each do |concept| %>
+      <%= render concept %>
+    <% end %>
+  </div>
+</div>

@@ -1,0 +1,18 @@
+<div class="mx-auto md:w-2/3 w-full flex">
+  <div class="mx-auto">
+    <% if notice.present? %>
+      <p class="py-2 px-3 bg-green-50 mb-5 text-green-500 font-medium rounded-lg inline-block" id="notice"><%= notice %></p>
+    <% end %>
+
+    <div class="flex-box">
+      <h1 class="font-bold text-4xl"><%= @subject.name %></h1>
+      <%= link_to "Nieuwe toets", new_subject_test_path(subject_id: @subject.id), class: "new-button" %>
+    </div>
+
+    <%= render "subject_tab_navigation" %>
+    
+    <%= render @tests %>
+
+    <%= link_to "Back to subjects", subjects_path, class: "back-button" %>
+  </div>
+</div>

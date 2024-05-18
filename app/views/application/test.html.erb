@@ -1,0 +1,17 @@
+<h1>
+  Toets voor <%= @glossary.title %>
+</h1>
+
+Welk begrip wordt hier uitgelegd? 
+<div>
+  "<%= @question_explanation %>"
+</div>
+
+<div>
+  <% @answers.each do |answer| %>
+    <div>
+      <input type="radio" value="<%= answer %>">
+      <label for="<%= answer %>"><%= answer %></label>
+    </div>
+  <% end %>
+</div>

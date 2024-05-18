@@ -1,0 +1,35 @@
+<h1>
+  Resultaten voor toets: "<%= @test.subject.name %> - <%= @test.glossary.title %>"
+</h1>
+
+
+<%= @test.correct_answers %> / <%= @test.question_amount %>
+<div>
+<% @test.questions.each do |question| %>
+  <div class="box" style=" <%= question.selected_answer && question.selected_answer == question.concept_id ? 'background-color: #cefad0;' : 'background-color: #FFCCCB;' %>">
+    <div>
+      Welk begrip wordt hier uitgelegd? <br> "<%= question.concept.explanation %>"
+    </div>
+    <hr>
+    <div>
+      Antwoorden:
+      <ul>
+        <% JSON.parse(question.answers).each do |answer| %>
+        <li style="<%= answer.to_i == question.concept_id ? "color: green;" : "" %>">
+          <%= Concept.find(answer).title.inspect %>
+        </li>
+        <% end %>
+      </ul>
+    </div>
+    <% if question.selected_answer %>
+    Jouw antwoord: <%= Concept.find(question.selected_answer.to_i).title %>
+    <% else %>
+    Geen antwoord gegeven
+    <% end%>
+  </div>
+<% end %>
+</div>
+
+<div>
+  <%= link_to "Terug", subject_path(@subject), class: "back-button" %>
+</div>

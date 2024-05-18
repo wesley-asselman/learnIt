@@ -1,0 +1,32 @@
+<div id="<%= dom_id question %>">
+  <h1>
+    Toets voor <%= question.test.glossary.title %>
+  </h1>
+
+  Welk begrip wordt hier uitgelegd? 
+  <div>
+    "<%= question.concept.explanation %>"
+  </div>
+
+  <%= form_for [@subject, @test, question] do |f| %>
+    <% JSON.parse(question.answers).each do |answer| %>
+    <% concept = Concept.find(answer)%>
+      <div>
+        <%= f.radio_button :selected_answer, concept.id %>
+        <%= f.label :selected_answer, concept.title %>
+      </div>
+    <% end %>
+    <div class="box flex-box">
+      <% if @question.number > 1%>
+        <%= link_to "vorige vraag", subject_test_question_path(@test, @test.questions.where(number: @question.number - 1).first), class: "new-button" %>
+      <% end %>
+      <%= link_to "Toets pauzeren", subject_path(id: @subject.id), class: "back-button" %>
+      <% if @question.number != @test.question_amount %>
+        <%= f.submit "Volgende vraag", disable_with: 'Submiting...', class: "new-button" %>
+      <% else %>
+        <%= hidden_field_tag 'test[is_finished]', true %> <!-- Hidden field for @test -->
+        <%= f.submit "Voltooien", disable_with: 'Submiting...', class: "new-button" %>
+      <% end %>
+    </div>
+  <% end %>
+</div>

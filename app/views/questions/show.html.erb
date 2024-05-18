@@ -1,0 +1,19 @@
+<div class="mx-auto md:w-2/3 w-full flex">
+  <div class="mx-auto">
+
+    <div>
+      Vraag 1 / <%= @test.question_amount %>
+    </div>
+
+    <div class="flex-box baseline">
+      <% @test.questions.each do |question| %>
+        <span class="number_box <%= @question.number == question.number ? "number_box--active" : question.selected_answer ? "number_box--answered" : "" %>">
+          <%= link_to question.number, subject_test_question_path(@subject, @test, question)%>
+        </span>
+      <% end %>
+    </div>
+
+    <%= render @question %>
+
+  </div>
+</div>

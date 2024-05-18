@@ -1,0 +1,12 @@
+
+  <tr>
+    <td id="<%= concept.title.downcase %>">
+      <%= link_to concept.title, edit_subject_glossary_concept_path(@subject, @glossary, concept) %>
+    </td>
+    <td>
+      <%= explanation_with_links(concept.explanation, concept.glossary_id) %>
+    </td>
+    <td>
+      <%= button_to "X", subject_glossary_concept_url(glossary_id: @glossary.id, id: concept.id), method: :delete, data: { confirm: "Are you sure?" }, class: "delete-button" %>
+    </td>
+  </tr>

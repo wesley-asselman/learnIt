@@ -1,0 +1,10 @@
+<%= link_to subject_glossary_url(id: glossary.id), class: "box" do %>
+  <div class="flex-box">
+    <div>
+      <%= glossary.title  %>
+    </div>
+    <div>
+      Aantal begrippen: <%= glossary.concepts.count%>
+    </div>
+  </div>
+<% end %>

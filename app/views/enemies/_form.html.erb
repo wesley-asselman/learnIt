@@ -1,0 +1,22 @@
+<%= form_with(model: enemy, class: "contents") do |form| %>
+  <% if enemy.errors.any? %>
+    <div id="error_explanation" class="bg-red-50 text-red-500 px-3 py-2 font-medium rounded-lg mt-3">
+      <h2><%= pluralize(enemy.errors.count, "error") %> prohibited this enemy from being saved:</h2>
+
+      <ul>
+        <% enemy.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="text_field" >
+    <%= form.label :name, "Naam" %>
+    <%= form.text_field :name, autofocus: true %>
+  </div>
+
+  <div class="inline">
+    <%= form.submit class: "rounded-lg py-3 px-5 bg-blue-600 text-white inline-block font-medium cursor-pointer" %>
+  </div>
+<% end %>

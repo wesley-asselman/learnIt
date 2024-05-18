@@ -1,0 +1,44 @@
+<div class="mx-auto md:w-2/3 w-full flex">
+  <div class="flex-box">
+    <h1 class="font-bold text-4xl"><%= link_to @subject.name, @subject %> | <%= link_to "Begrippenlijsten", subject_glossaries_path(@subject)  %> | <%= @glossary.title %></h1>
+  </div>
+  <div class="mx-auto">
+    <div style="max-height: 150px; overflow-y: scroll;">
+      <% @glossary.concepts.each do |concept|%>
+        <%= link_to concept.title, subject_glossary_concept_path(id: concept), style:"display: inline-block;", class: "link_box #{concept.id == @concept.id ? " link_box--active " : " "}" %>
+      <% end %>
+    </div>
+    <div class="link_box_container">
+      <h2 class="expanded_title">
+        <div class="flex-box">
+          <span>
+            <%= @concept.title %>
+          </span>
+          <%= link_to "Aanpassen", edit_subject_glossary_concept_path(@subject, @glossary, @concept) %>
+        </div>
+      </h2>
+      <i style="margin-bottom: 10px;" class="quote">
+        "<%= @concept.explanation %>"
+      </i>
+      <% if @concept.note %>
+        <div style="margin-top: 10px;">
+          <%= @concept.note.gsub("\n", "<br>").html_safe %>
+        </div>
+      <% end %>
+    </div>
+    
+    
+    <div class="flex-box box">
+      <% if @concept.previous %>
+        <%= link_to "Vorige", subject_glossary_concept_path(id: @concept.previous), class: "ml-2 rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
+      <% else %>
+      <% end %>
+      <%= link_to "Terug naar woordenlijst", subject_glossary_path(@subject, @glossary), class: "ml-2 rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
+      <% if @concept.next %>
+        <%= link_to "Volgende", subject_glossary_concept_path(id: @concept.next), class: "ml-2 rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
+      <% else %>
+        <%= link_to "Nieuw begrip", new_subject_glossary_concept_path %>
+      <% end %>
+    </div>
+  </div>
+</div>

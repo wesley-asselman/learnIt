@@ -1,0 +1,110 @@
+.timeline {
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+}
+
+.line {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 50%;
+  width: 2px;
+  background-color: black; /* Adjust styling as needed */
+  z-index: -1;
+}
+
+.event {
+  width: 80%;
+  max-width: 500px; /* Adjust as needed */
+  margin-bottom: 40px; /* Adjust spacing between events */
+  transition-duration: 400ms;
+
+}
+
+.right {
+  align-self: flex-start;
+}
+
+.left {
+  align-self: flex-end;
+}
+
+.event_content {
+  background-color: #f9f9f9; /* Adjust as needed */
+  border: 1px solid #ddd; /* Adjust as needed */
+  padding: 0 20px 20px 20px;
+  border-radius: 8px; /* Optional: Add some roundness to the event boxes */
+}
+
+.new_event-button{
+  padding: 20px;
+  border-radius: 8px; /* Optional: Add some roundness to the event boxes */
+  background-color: #f9f9f9; /* Adjust as needed */
+  border: 1px solid #ddd; /* Adjust as needed */
+  font-size: 60px;
+  text-decoration: none;
+  margin: auto;
+  text-align: center;
+  transition-duration: 200ms;
+  display: block;
+}
+
+.new_event-button:hover {
+  text-decoration: none;
+  color: white;
+  background-color: gray;
+  cursor: pointer;
+}
+
+.hidden_text {
+  font-style: italic;
+  margin: 0;
+  max-height: 0px;
+  transition-duration: 200ms;
+  opacity: 0;
+  font-weight: 200;
+  font-size: medium;
+  color: darkslategray;
+}
+
+.event:hover .hidden_text {
+  margin-top: 10px;
+  max-height: 200px;
+  overflow-y: scroll;
+  opacity: 1;
+}
+
+@keyframes fadeInLeft {
+  from {
+    transform: translateX(20px);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+/* Apply the animation to an element */
+.fadeInLeft {
+  animation: fadeInLeft 1s ease-in-out;
+}
+
+@keyframes fadeInRight {
+  from {
+    transform: translateX(-20px);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+/* Apply the animation to an element */
+.fadeInRight {
+  animation: fadeInRight 1s ease-in-out;
+}

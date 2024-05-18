@@ -1,0 +1,11 @@
+<div class="tab_container">
+  <div class="flex-box baseline">
+    <%= link_to "begrippenlijst", subject_glossary_path(@subject.id, @glossary.id), class: "tab #{current_page?(subject_glossary_path(@subject.id)) ? "tab--active" : "tab--inactive"}" %>
+    <% if @timeline %>
+      <%= link_to "Tijdlijn", subject_glossary_timeline_path(@subject.id, @glossary.id, @timeline), class: "tab #{current_page?(subject_glossary_timeline_path(@subject.id, @glossary.id, @timeline)) ? "tab--active" : "tab--inactive"}" %>
+    <% else %>
+      <%= button_to "tijdlijn aanmaken", subject_glossary_timelines_path(@subject.id, @glossary.id), class: "tab tab--inactive" %>
+    <% end %>
+  </div>
+  <div class="tab_divider"></div>
+</div>

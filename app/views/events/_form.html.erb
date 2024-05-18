@@ -1,0 +1,25 @@
+<%= form_with(model: [@subject, @glossary, @timeline, event], class: "contents") do |form| %>
+  <div class="text_field" >
+    <%= form.label :title, "Gebeurtenis" %>
+    <%= form.text_field :title %>
+  </div>
+
+  <div class="text_field" >
+    <%= form.label :explanation, "Uitleg" %>
+    <%= form.text_area :explanation, class: "textarea", rows: 20  %>
+  </div>
+
+  <div class="text_field" >
+    <%= form.label :year, "Jaar" %>
+    <%= form.number_field :year %>
+  </div>
+
+  <div class="text_field" >
+    <%= form.hidden_field :timeline_id, value: @timeline.id %>
+  </div>
+
+  <div class="flex-box">
+    <%= link_to "Back to events", subject_glossary_timeline_path(@subject.id, @glossary.id, @timeline.id), class: "back-button" %>
+    <%= form.submit action_name == 'new' ? "Begrip toevoegen" : "Begrip aanpassen", class: "new-button" %>
+  </div>
+<% end %>

@@ -1,0 +1,20 @@
+<div id="<%= dom_id test %>">
+  <div class="flex-box box ">
+    <div>
+      Toets: <%= test.subject.name %>|<%= test.glossary.title %>
+    </div>
+    <% if test.questions.any? && !test.is_finished %>
+      <div>
+        <%= link_to "Toets starten", subject_test_question_path( subject_id: @subject.id,test_id: test.id, id: test.questions.last), class: "new-button" %>
+      </div>
+    <% elsif test.is_finished %>
+      <div>
+        <%= link_to "Resultaten inzien", subject_test_results_path(subject_id: @subject.id, test_id: test.id), class: "new-button" %>
+      </div>
+    <% else %>
+      <div>
+        <%= button_to "Toets starten", subject_test_questions_path(subject_id: @subject.id, test_id: test.id), class: "new-button" %>
+      </div>
+    <% end %>
+  </div>
+</div>

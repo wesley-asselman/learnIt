@@ -1,0 +1,48 @@
+.text_field {
+  margin: 10px 0;
+}
+
+.text_field > input {
+  border: solid 1px gray;
+  border-radius: 5px;
+  padding: 5px;
+  margin: 10px 0;
+  display: block;
+  width: 100%;
+}
+
+.text_field > label {
+  font-weight: bold;
+  display: block;
+}
+
+.text_field > select {
+  width: 100%;
+  display: block;
+  border: solid 1px gray;
+  border-radius: 5px;
+  margin: 5px 0;
+}
+
+.textarea { 
+  width: 100%;
+  border: solid 1px gray;
+  border-radius: 5px;
+  padding: 5px;
+  margin: 10px 0;
+}
+
+.enemy {
+  padding: 4px;
+  transition-duration: 300ms;
+}
+
+.enemy:hover {
+  background-color: lightgray;
+}
+
+.killed {
+  background-color: red;
+  color: white;
+  opacity: 70%;
+}

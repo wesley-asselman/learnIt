@@ -1,0 +1,180 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, or any plugin's
+ * vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ */
+ @import 'navbar';
+ @import 'form';
+
+ *{
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  scroll-behavior: smooth;
+ }
+
+ body {
+  padding: 0;
+  margin: 0;
+ }
+
+ .container {
+  margin: auto;
+  max-width: 1024px;
+ }
+
+ .appTitle{
+  font-weight: bold;
+  padding-right: 10px;
+  border-right: 1px solid black;
+  display: inline-block
+ }
+
+ .flex-box {
+  display: flex !important;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1024px;
+  overflow-x: auto;
+ }
+
+ .baseline {
+  justify-content: start !important;
+ }
+
+ .number_box {
+  border: 1px solid lightgray;
+  border-radius: 2px;
+  padding: 3px 3px;
+  height: 20px;
+  width: 20px;
+  text-align: center;
+  margin: 4px;
+  color: lightgray;
+ }
+
+ .number_box--active {
+  color: black;
+  border: 1px solid black;
+ }
+
+ .number_box--answered {
+  color: white;
+  background-color: darkgray;
+  border: 1px solid black;
+ }
+
+ a {
+  text-decoration: underline;
+ }
+
+ td > a:visited {
+  color: blue !important;
+ }
+
+ a:visited {
+  color: inherit
+ }
+
+ a:hover {
+  text-decoration: underline;
+ }
+
+ .box {
+  -webkit-box-shadow: 0px 7px 14px -7px rgba(0,0,0,0.75);
+  -moz-box-shadow: 0px 7px 14px -7px rgba(0,0,0,0.75);
+  box-shadow: 0px 7px 14px -7px rgba(0,0,0,0.75);
+  padding: 20px;
+  margin: 20px 0;
+  position: relative;
+  display: block
+ }
+
+tr .delete-button {
+  background-color: transparent;
+  color: transparent;
+}
+
+tr:hover .delete-button {
+  background-color: red;
+  color: white;
+ }
+
+ textarea { resize: none; }
+
+.link_box {
+  border: 1px solid gray;
+  padding: 4px 8px;
+  border-radius: 4px;
+  margin-right: 8px;
+  margin-top: 8px;
+  color: black;
+}
+
+.link_box--active {
+  background-color: gray;
+  color: white !important;
+}
+
+.link_box_container {
+  height: 400px;
+  overflow-y: scroll;
+}
+
+.expanded_title {
+  position: sticky;
+  top: 0px;
+  width: 100%;
+  background: white;
+  padding: 4px 0px;
+  -webkit-box-shadow: 0px 10px 5px -6px rgba(0,0,0,0.75);
+  -moz-box-shadow: 0px 10px 5px -6px rgba(0,0,0,0.75);
+  box-shadow: 0px 10px 5px -6px rgba(0,0,0,0.75);
+}
+
+.quote {
+  color: gray;
+}
+
+.tab_container{
+  padding: 0
+}
+
+.tab_divider {
+  margin-top: -2px;
+  border-top: 1px solid gray;
+  width: 100%;
+}
+
+.tab {
+  border-top: 1px solid gray;
+  border-left: 1px solid gray;
+  border-right: 1px solid gray;
+  font-size: large;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+  padding: 5px;
+  transition-duration: 100ms;
+  border-bottom: 1px solid transparent;
+  text-decoration: none;
+}
+
+.tab:hover {
+  text-decoration: none;
+}
+
+.tab--active {
+  border-bottom: 4px solid white;
+}
+
+.tab--inactive:hover {
+  border-bottom: 2px solid transparent;
+}

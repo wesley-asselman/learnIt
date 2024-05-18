@@ -1,0 +1,15 @@
+<%= form_with(model: [subject, test], class: "contents") do |form| %>
+  <div class="text_field" >
+    <%= form.label :glossary_id, "Kies een begrippenlijst om te toetsen" %>
+    <%= form.select :glossary_id, options_for_select(subject.glossaries.map { |g| [" #{g.subject.name} | #{g.title}", g.id] }) %>  
+  </div>
+
+  <div class="text_field" >
+    <%= form.label :question_amount, "Aantal vragen" %>
+    <%= form.number_field :question_amount, value: 20 %>
+  </div>
+
+  <div class="inline">
+    <%= form.submit class: "rounded-lg py-3 px-5 bg-blue-600 text-white inline-block font-medium cursor-pointer" %>
+  </div>
+<% end %>
